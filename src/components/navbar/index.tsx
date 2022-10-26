@@ -1,4 +1,4 @@
-export default function Header() {
+export default function NavbarPage() {
   return (
     <header>
       <nav className="flex fixed top-0 left-0 right-0 justify-around py-6 bg-white shadow-2xl shadow-slate-300">
