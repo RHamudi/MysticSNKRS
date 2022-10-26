@@ -1,17 +1,12 @@
 import type { NextPage } from 'next';
 
-import Releases from '../components/discover-new-arrivals';
-import Footer from '../components/footer';
-import Infos from '../components/infos';
-import TrendingTops from '../components/trending-tops';
+import HomePage from '../components/home';
 
 const Home: NextPage = () => {
   return (
-    <>
-      <Releases />
-      <Infos />
-      <TrendingTops />
-    </>
+    <div>
+      <HomePage />
+    </div>
   );
 };
 

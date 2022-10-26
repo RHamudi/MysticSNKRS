@@ -5,7 +5,7 @@ import CardDiscover from '../card-discover';
 export default function Releases() {
   const { data: Products, isLoading: Loading } = useProducts();
 
-  if (!Loading)
+  if (!Loading) {
     return (
       <main>
         <img className="mt-6" src={imgMain.src} alt="test" />
@@ -25,4 +25,7 @@ export default function Releases() {
         </div>
       </main>
     );
+  } else {
+    return <div>Carregando...</div>;
+  }
 }

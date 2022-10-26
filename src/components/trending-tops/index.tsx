@@ -14,7 +14,7 @@ export default function TrendingTops() {
     Products?.filter((item) => item.productName.includes(tops))
   );
 
-  if (!Loading)
+  if (!Loading) {
     return (
       <div>
         <h2 className="text-xl font-bold text-center my-10">Treding tops</h2>
@@ -37,4 +37,7 @@ export default function TrendingTops() {
         </div>
       </div>
     );
+  } else {
+    return <div>Carregando...</div>;
+  }
 }
