@@ -1,7 +1,7 @@
 export default function Header() {
   return (
     <header>
-      <nav className="flex justify-around py-6 bg-white shadow-black">
+      <nav className="flex fixed top-0 left-0 right-0 justify-around py-6 bg-white shadow-2xl shadow-slate-300">
         <ul className="flex">
           <li className="font-black text-2xl">
             <h1>Mystic SNKRS</h1>
