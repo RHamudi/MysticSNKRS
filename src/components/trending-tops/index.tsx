@@ -23,6 +23,7 @@ export default function TrendingTops() {
             array?.map((filter, index) => (
               <CardDiscover
                 key={index}
+                productId={filter._id}
                 productName={filter.productName}
                 productImage={filter.productImage}
                 productPrice={filter.productPrice}
@@ -32,7 +33,7 @@ export default function TrendingTops() {
         </div>
         <div className="flex justify-center mt-24">
           <button className="bg-zinc-900 py-2 px-5 rounded text-white ">
-            SHOP
+            <a href="/shop">SHOP</a>
           </button>
         </div>
       </div>

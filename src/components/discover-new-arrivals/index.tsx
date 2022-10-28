@@ -17,6 +17,7 @@ export default function Releases() {
           {Products?.map((product, index) => (
             <CardDiscover
               key={index}
+              productId={product._id}
               productName={product.productName}
               productImage={product.productImage}
               productPrice={product.productPrice}
