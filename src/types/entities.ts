@@ -1,6 +1,7 @@
 export interface APIecommerceResponse<T> {
   status: number;
   data: T;
+  id: string | string[] | undefined;
 }
 
 export interface Products {
