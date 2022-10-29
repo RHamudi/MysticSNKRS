@@ -1,5 +1,4 @@
 export interface APIecommerceResponse<T> {
-  status: number;
   data: T;
   id: string | string[] | undefined;
 }
@@ -13,4 +12,11 @@ export interface Products {
   productImage: string;
   username: string;
   __v: number;
+}
+
+export interface Login {
+  msg: string;
+  username: string;
+  id: string;
+  token: string;
 }
