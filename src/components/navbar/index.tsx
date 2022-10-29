@@ -34,33 +34,24 @@ export default function NavbarPage() {
         </div>
         <div className={hidden ? 'md:block' : 'hidden md:block'}>
           <ul className="flex gap-2 flex-col md:flex md:flex-row md:gap-7">
-            <li>
-              <Link
-                href="/"
-                className={path === '/' ? 'border-b-2 border-black' : undefined}
-              >
-                Home
-              </Link>
+            <li
+              className={path === '/' ? 'border-b-2 border-black' : undefined}
+            >
+              <Link href="/">Home</Link>
             </li>
-            <li>
-              <Link
-                href="/shop"
-                className={
-                  path === '/shop' ? 'border-b-2 border-black' : undefined
-                }
-              >
-                Shop
-              </Link>
+            <li
+              className={
+                path === '/shop' ? 'border-b-2 border-black' : undefined
+              }
+            >
+              <Link href="/shop">Shop</Link>
             </li>
-            <li>
-              <Link
-                href="/about"
-                className={
-                  path === '/about' ? 'border-b-2 border-black' : undefined
-                }
-              >
-                About
-              </Link>
+            <li
+              className={
+                path === '/about' ? 'border-b-2 border-black' : undefined
+              }
+            >
+              <Link href="/about">About</Link>
             </li>
             <li>Contact</li>
           </ul>
