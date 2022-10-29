@@ -1,10 +1,14 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { BsFillPeopleFill, BsFillCartFill } from 'react-icons/bs';
 import { GiHamburgerMenu } from 'react-icons/gi';
 
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 
+import { AuthContext } from '../../contexts/AuthContext';
+
 export default function NavbarPage() {
+  const auth = useContext(AuthContext);
   const [hidden, setHidden] = useState(false);
 
   function handleHidden() {
@@ -31,44 +35,56 @@ export default function NavbarPage() {
         <div className={hidden ? 'md:block' : 'hidden md:block'}>
           <ul className="flex gap-2 flex-col md:flex md:flex-row md:gap-7">
             <li>
-              <a
+              <Link
                 href="/"
                 className={path === '/' ? 'border-b-2 border-black' : undefined}
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href="/shop"
                 className={
                   path === '/shop' ? 'border-b-2 border-black' : undefined
                 }
               >
                 Shop
-              </a>
+              </Link>
             </li>
             <li>
-              <a
+              <Link
                 href="/about"
                 className={
                   path === '/about' ? 'border-b-2 border-black' : undefined
                 }
               >
                 About
-              </a>
+              </Link>
             </li>
             <li>Contact</li>
           </ul>
         </div>
         <div className={hidden ? 'md:block' : 'hidden md:block'}>
           <ul className="flex gap-2 flex-col md:flex md:flex-row md:gap-7">
-            <li className="justify-center items-center text-xl">
-              <BsFillPeopleFill />
+            <li
+              className={
+                path === '/login'
+                  ? 'border-b-2 border-black justify-center items-center text-xl'
+                  : 'justify-center items-center text-xl'
+              }
+            >
+              <Link href="/login">
+                <span>
+                  <BsFillPeopleFill />
+                </span>
+              </Link>
             </li>
-            <li className="justify-center items-center text-xl">
-              <BsFillCartFill />
-            </li>
+            {auth?.authenticate && (
+              <li className="justify-center items-center text-xl">
+                <BsFillCartFill />
+              </li>
+            )}
           </ul>
         </div>
       </nav>
