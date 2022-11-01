@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { useProducts } from '../../hooks/useProducts';
 import CardDiscover from '../card-discover';
 
@@ -33,7 +35,7 @@ export default function TrendingTops() {
         </div>
         <div className="flex justify-center mt-24">
           <button className="bg-zinc-900 py-2 px-5 rounded text-white ">
-            <a href="/shop">SHOP</a>
+            <Link href="/shop">SHOP</Link>
           </button>
         </div>
       </div>
