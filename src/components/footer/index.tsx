@@ -43,6 +43,7 @@ export default function Footer() {
               width={255}
               height={85}
               blurDataURL={payments.blurDataURL}
+              sizes={'256'}
             />
           </li>
         </ul>

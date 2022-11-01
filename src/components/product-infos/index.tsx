@@ -19,7 +19,7 @@ export default function ProductInfo() {
     return (
       <div className="md:flex md:justify-center md:gap-36">
         <Image
-          className="md:w-96 lg:w-3/6 -z-50"
+          className="md:w-96 -z-50"
           src={product?.productImage != undefined ? product.productImage : ''}
           alt={product?.productName}
           width={3500}

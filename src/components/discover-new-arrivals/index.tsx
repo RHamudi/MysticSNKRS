@@ -19,6 +19,7 @@ export default function Releases() {
             height={512}
             blurDataURL={imgMain.blurDataURL}
             priority={true}
+            sizes={'510'}
           />
         </div>
 
