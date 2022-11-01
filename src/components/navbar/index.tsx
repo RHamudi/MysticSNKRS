@@ -20,10 +20,10 @@ export default function NavbarPage() {
   const path = route.pathname;
 
   return (
-    <header className="mb-20">
-      <nav className="flex flex-col md:flex-row fixed top-0 left-0 right-0 justify-around py-6 bg-white shadow-2xl shadow-slate-300">
-        <div className="flex justify-between">
-          <ul className="flex">
+    <header className="mb-20 z-50">
+      <nav className="z-50 flex flex-col md:flex-row fixed top-0 left-0 right-0 justify-around py-6 bg-white shadow-2xl shadow-slate-300">
+        <div className="flex z-50 justify-between">
+          <ul className="flex z-50">
             <li className="font-black text-2xl">
               <h1>Mystic SNKRS</h1>
             </li>
@@ -33,7 +33,7 @@ export default function NavbarPage() {
           </button>
         </div>
         <div className={hidden ? 'md:block' : 'hidden md:block'}>
-          <ul className="flex gap-2 flex-col md:flex md:flex-row md:gap-7">
+          <ul className="flex z-50 gap-2 flex-col md:flex md:flex-row md:gap-7">
             <li
               className={path === '/' ? 'border-b-2 border-black' : undefined}
             >
@@ -44,7 +44,9 @@ export default function NavbarPage() {
                 path === '/shop' ? 'border-b-2 border-black' : undefined
               }
             >
-              <Link href="/shop">Shop</Link>
+              <Link className="text-lg" href="/shop">
+                Shop
+              </Link>
             </li>
             <li
               className={
@@ -60,19 +62,29 @@ export default function NavbarPage() {
           <ul className="flex gap-2 flex-col md:flex md:flex-row md:gap-7">
             <li
               className={
-                path === '/login'
-                  ? 'border-b-2 border-black justify-center items-center text-xl'
+                path === '/user'
+                  ? 'border-b-2 border-black justify-center items-center'
                   : 'justify-center items-center text-xl'
               }
             >
-              <Link href="/login">
-                <span>
-                  <BsFillPeopleFill />
-                </span>
-              </Link>
+              {auth?.authenticate == true ? (
+                <Link href="/user">
+                  <span className="flex justify-center items-center cursor-pointer gap-1">
+                    <span className="text-lg">account</span>{' '}
+                    <BsFillPeopleFill />
+                  </span>
+                </Link>
+              ) : (
+                <Link href="/login">
+                  <span className="flex justify-center items-center cursor-pointer gap-1">
+                    <span className="text-lg">Login / Create</span>{' '}
+                    <BsFillPeopleFill />
+                  </span>
+                </Link>
+              )}
             </li>
             {auth?.authenticate && (
-              <li className="justify-center items-center text-xl">
+              <li className="flex justify-center items-center text-xl">
                 <BsFillCartFill />
               </li>
             )}
