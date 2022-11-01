@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 export default function CardDiscover(props: {
@@ -12,10 +13,16 @@ export default function CardDiscover(props: {
   }
   return (
     <div
-      className="w-64 shadow-md hover:shadow-slate-400 rounded-xl p-5"
+      className="w-64 shadow-md hover:shadow-slate-400 rounded-xl p-5 cursor-pointer"
       onClick={navigation}
     >
-      <img className="w-64" src={props.productImage} alt={props.productName} />
+      <Image
+        src={props.productImage}
+        className="-z-50"
+        alt={props.productName}
+        width={216}
+        height={216}
+      />
       <div className="flex flex-col items-center">
         <p className="text-lg font-medium">{props.productName}</p>
         <p className="text-lg font-medium">R$ {props.productPrice}</p>
