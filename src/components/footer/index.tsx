@@ -6,7 +6,7 @@ import payments from '../../assets/payments.webp';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-400 flex justify-around items-center py-10 mt-16">
+    <footer className="bg-gray-400 flex justify-around items-center py-10">
       <div>
         <h3 className="font-bold flex justify-center">COMPANY INFO</h3>
         <ul>
