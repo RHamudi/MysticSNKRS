@@ -22,6 +22,7 @@ export default function CardDiscover(props: {
         alt={props.productName}
         width={216}
         height={216}
+        blurDataURL={props.productImage}
       />
       <div className="flex flex-col items-center">
         <p className="text-lg font-medium">{props.productName}</p>
