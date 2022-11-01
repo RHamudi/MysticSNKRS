@@ -22,6 +22,7 @@ export default function CardDiscover(props: {
         alt={props.productName}
         width={216}
         height={216}
+        placeholder="blur"
         blurDataURL={props.productImage}
         sizes={'216'}
       />

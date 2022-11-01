@@ -17,13 +17,14 @@ export default function ProductInfo() {
   }
   if (!loading) {
     return (
-      <div className="md:flex md:justify-center md:gap-36">
+      <div className="md:flex md:justify-center">
         <Image
-          className="md:w-96 -z-50"
+          className="-z-50"
           src={product?.productImage != undefined ? product.productImage : ''}
           alt={product?.productName}
-          width={3500}
-          height={3500}
+          width={5000}
+          height={5000}
+          placeholder="blur"
           blurDataURL={product?.productImage}
         />
         <div className="flex flex-col justify-start gap-5">

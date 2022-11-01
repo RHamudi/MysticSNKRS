@@ -43,7 +43,7 @@ export default function CreateUser() {
         width={655}
         height={655}
         blurDataURL={img.blurDataURL}
-        sizes={'655'}
+        placeholder="blur"
       />
       <form className="flex flex-col">
         <div>

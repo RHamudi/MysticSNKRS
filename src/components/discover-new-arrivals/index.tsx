@@ -18,6 +18,7 @@ export default function Releases() {
             width={1315}
             height={512}
             blurDataURL={imgMain.blurDataURL}
+            placeholder="blur"
             priority={true}
             sizes={'510'}
           />
