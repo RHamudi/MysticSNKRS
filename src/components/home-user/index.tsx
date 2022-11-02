@@ -1,24 +1,15 @@
-import { useContext } from 'react';
-
-import { AuthContext } from '../../contexts/AuthContext';
 import { useUserProducts } from '../../hooks/useProductsUserId';
 import CardDiscover from '../card-discover';
+import NavUser from '../nav-user';
 
 export default function HomeUser() {
-  const auth = useContext(AuthContext);
   const userId = localStorage.getItem('userId');
   const { data: productsUser, isLoading: loading } = useUserProducts(userId);
 
   return (
     <>
-      <div className="flex justify-center mt-32">
-        <div className="w-3/5 text-2xl font-bold ">My Account</div>
-        <div className="flex gap-6">
-          <span>My Products</span>
-          <span onClick={auth?.logout}>logout</span>
-        </div>
-      </div>
-      <div className="flex justify-evenly gap-x-7 gap-y-3 flex-wrap">
+      <NavUser />
+      <div className="flex justify-evenly gap-x-7 gap-y-3 flex-wrap mt-8">
         {loading === true ? (
           <div>carregando</div>
         ) : (
