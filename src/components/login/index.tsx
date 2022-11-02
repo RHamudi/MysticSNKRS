@@ -30,7 +30,7 @@ export default function LoginPage() {
       ?.signin(email, password)
       .then(() => {
         NProgress.done();
-        router.push('/user');
+        router.push('/user/products');
       })
       .catch((err) => {
         NProgress.done();
