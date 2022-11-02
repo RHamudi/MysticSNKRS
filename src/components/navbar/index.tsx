@@ -62,13 +62,13 @@ export default function NavbarPage() {
           <ul className="flex gap-2 flex-col md:flex md:flex-row md:gap-7">
             <li
               className={
-                path === '/user'
+                path === '/login' || path === '/create'
                   ? 'border-b-2 border-black justify-center items-center'
                   : 'justify-center items-center text-xl'
               }
             >
               {auth?.authenticate == true ? (
-                <Link href="/user">
+                <Link href="/user/products">
                   <span className="flex justify-center items-center cursor-pointer gap-1">
                     <span className="text-lg">account</span>{' '}
                     <BsFillPeopleFill />
