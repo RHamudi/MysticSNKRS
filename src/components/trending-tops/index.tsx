@@ -1,3 +1,5 @@
+import PlaceholderLoading from 'react-placeholder-loading';
+
 import Link from 'next/link';
 
 import { useProducts } from '../../hooks/useProducts';
@@ -41,6 +43,36 @@ export default function TrendingTops() {
       </div>
     );
   } else {
-    return <div>Carregando...</div>;
+    return (
+      <div className="flex justify-around flex-wrap gap-24 my-10">
+        <div>
+          <PlaceholderLoading
+            shape="rect"
+            width={256}
+            height={340}
+            colorStart={'rgb(229 231 235)'}
+            colorEnd={'rgb(209 213 219)'}
+          />
+        </div>
+        <div>
+          <PlaceholderLoading
+            shape="rect"
+            width={256}
+            height={340}
+            colorStart={'rgb(229 231 235)'}
+            colorEnd={'rgb(209 213 219)'}
+          />
+        </div>
+        <div>
+          <PlaceholderLoading
+            shape="rect"
+            width={256}
+            height={340}
+            colorStart={'rgb(229 231 235)'}
+            colorEnd={'rgb(209 213 219)'}
+          />
+        </div>
+      </div>
+    );
   }
 }

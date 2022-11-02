@@ -1,3 +1,5 @@
+import PlaceholderLoading from 'react-placeholder-loading';
+
 import Image from 'next/image';
 
 import imgMain from '../../assets/main.webp';
@@ -42,6 +44,76 @@ export default function Releases() {
       </main>
     );
   } else {
-    return <div>Carregando...</div>;
+    return (
+      <>
+        <div>
+          <div>
+            <PlaceholderLoading
+              shape="rect"
+              width={1310}
+              height={511}
+              colorStart={'rgb(229 231 235)'}
+              colorEnd={'rgb(209 213 219)'}
+            />
+          </div>
+        </div>
+        <div className="flex justify-around flex-wrap gap-24 pt-9">
+          <div>
+            <PlaceholderLoading
+              shape="rect"
+              width={256}
+              height={340}
+              colorStart={'rgb(229 231 235)'}
+              colorEnd={'rgb(209 213 219)'}
+            />
+          </div>
+          <div>
+            <PlaceholderLoading
+              shape="rect"
+              width={256}
+              height={340}
+              colorStart={'rgb(229 231 235)'}
+              colorEnd={'rgb(209 213 219)'}
+            />
+          </div>
+          <div>
+            <PlaceholderLoading
+              shape="rect"
+              width={256}
+              height={340}
+              colorStart={'rgb(229 231 235)'}
+              colorEnd={'rgb(209 213 219)'}
+            />
+          </div>
+          <div>
+            <PlaceholderLoading
+              shape="rect"
+              width={256}
+              height={340}
+              colorStart={'rgb(229 231 235)'}
+              colorEnd={'rgb(209 213 219)'}
+            />
+          </div>
+          <div>
+            <PlaceholderLoading
+              shape="rect"
+              width={256}
+              height={340}
+              colorStart={'rgb(229 231 235)'}
+              colorEnd={'rgb(209 213 219)'}
+            />
+          </div>
+          <div>
+            <PlaceholderLoading
+              shape="rect"
+              width={256}
+              height={340}
+              colorStart={'rgb(229 231 235)'}
+              colorEnd={'rgb(209 213 219)'}
+            />
+          </div>
+        </div>
+      </>
+    );
   }
 }
