@@ -19,11 +19,11 @@ export default function ProductInfo() {
     return (
       <div className="md:flex md:justify-center">
         <Image
-          className="-z-50"
+          className=" -z-50"
           src={product?.productImage != undefined ? product.productImage : ''}
           alt={product?.productName}
-          width={5000}
-          height={5000}
+          width={3000}
+          height={3000}
           placeholder="blur"
           blurDataURL={product?.productImage}
         />
