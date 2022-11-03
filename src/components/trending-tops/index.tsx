@@ -1,12 +1,10 @@
+import Link from 'next/link';
+
 import { useProducts } from '../../hooks/useProducts';
 import CardDiscover from '../card-discover';
 
 export default function TrendingTops() {
-  const tops = [
-    'Black Flax',
-    'Air Jordan 2',
-    'Hot Step Air Terra Humara ’99 OG',
-  ];
+  const tops = ['AIR MAX PENNY', 'Air Jordan 6 Retro', 'Air Force 1 Mid'];
 
   const { data: Products, isLoading: Loading } = useProducts();
 
@@ -22,6 +20,7 @@ export default function TrendingTops() {
           {filtered.map((array) =>
             array?.map((filter, index) => (
               <CardDiscover
+                buttonRemove={false}
                 key={index}
                 productId={filter._id}
                 productName={filter.productName}
@@ -33,12 +32,12 @@ export default function TrendingTops() {
         </div>
         <div className="flex justify-center mt-24">
           <button className="bg-zinc-900 py-2 px-5 rounded text-white ">
-            <a href="/shop">SHOP</a>
+            <Link href="/shop">SHOP</Link>
           </button>
         </div>
       </div>
     );
   } else {
-    return <div>Carregando...</div>;
+    return <div>Carregando</div>;
   }
 }

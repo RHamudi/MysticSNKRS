@@ -9,6 +9,7 @@ export default function ShopPage() {
       <div className="flex justify-around flex-wrap gap-12">
         {products?.map((product, index) => (
           <CardDiscover
+            buttonRemove={false}
             key={index}
             productId={product._id}
             productName={product.productName}
@@ -19,6 +20,6 @@ export default function ShopPage() {
       </div>
     );
   } else {
-    return <div>Shop Page</div>;
+    return <></>;
   }
 }

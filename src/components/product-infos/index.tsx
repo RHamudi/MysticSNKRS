@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 import { useProduct } from '../../hooks/useProductId';
@@ -10,18 +11,21 @@ export default function ProductInfo() {
   }
 
   const { data: product, isLoading: loading } = useProduct(verify(id));
-  console.log(product?.productName);
 
   if (loading) {
     return <div>carregando</div>;
   }
   if (!loading) {
     return (
-      <div className="md:flex md:justify-center md:gap-36">
-        <img
-          className="md:w-96 lg:w-3/6"
-          src={product?.productImage}
+      <div className="md:flex md:justify-center">
+        <Image
+          className=" -z-50"
+          src={product?.productImage != undefined ? product.productImage : ''}
           alt={product?.productName}
+          width={3000}
+          height={3000}
+          placeholder="blur"
+          blurDataURL={product?.productImage}
         />
         <div className="flex flex-col justify-start gap-5">
           <h1 className="mt-16 text-2xl font-bold text-center">
