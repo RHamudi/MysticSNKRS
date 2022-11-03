@@ -1,5 +1,3 @@
-import PlaceholderLoading from 'react-placeholder-loading';
-
 import { useProducts } from '../../hooks/useProducts';
 import CardDiscover from '../card-discover';
 
