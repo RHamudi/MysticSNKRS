@@ -50,7 +50,7 @@ export default function CardDiscover(props: {
         )}
         <div onClick={navigationProduct}>
           <Image
-            src={props.productImage}
+            src={props.productImage != undefined ? props.productImage : ''}
             className="-z-50"
             alt={props.productName}
             width={216}
