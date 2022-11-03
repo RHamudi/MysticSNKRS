@@ -15,6 +15,7 @@ export default function HomeUser() {
         ) : (
           productsUser?.map((product, key) => (
             <CardDiscover
+              buttonRemove={true}
               key={key}
               productName={product.productName}
               productImage={product.productImage}
