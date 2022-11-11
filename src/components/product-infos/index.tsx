@@ -19,13 +19,12 @@ export default function ProductInfo() {
     return (
       <div className="md:flex md:justify-center">
         <Image
-          className=" -z-50"
+          className="-z-50"
           src={product?.productImage != undefined ? product.productImage : ''}
           alt={product?.productName}
           width={3000}
           height={3000}
-          placeholder="blur"
-          blurDataURL={product?.productImage}
+          placeholder="empty"
         />
         <div className="flex flex-col justify-start gap-5">
           <h1 className="mt-16 text-2xl font-bold text-center">
