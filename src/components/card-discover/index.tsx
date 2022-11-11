@@ -17,6 +17,7 @@ export default function CardDiscover(props: {
   const router = useRouter();
   const storageToken = localStorage.getItem('authToken');
   const storageUserId = localStorage.getItem('userId');
+
   function navigationProduct() {
     router.push(`/product/${props.productId}`);
   }
