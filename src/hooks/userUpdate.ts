@@ -6,15 +6,15 @@ import {
 } from '../types/entities';
 
 export async function updateProduct(
-  userId: string | null,
   productId: string | string[] | undefined,
   product: UpdateProduct
 ) {
   console.log(product);
+  const storageUserId = localStorage.getItem('userId');
   const token = localStorage.getItem('authToken');
   const res = (
     await httpClient<APIecommerceResponse<Products[]>>({
-      url: `/update/product/${userId}/${productId}`,
+      url: `/update/product/${storageUserId}/${productId}`,
       method: 'PATCH',
       data: product,
       headers: {
