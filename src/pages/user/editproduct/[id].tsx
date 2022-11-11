@@ -3,6 +3,7 @@ import ContentLoader from 'react-content-loader';
 
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import NProgress from 'nprogress';
 
 import { useProduct } from '../../../hooks/useProductId';
 import { updateProduct } from '../../../hooks/userUpdate';
@@ -16,7 +17,9 @@ export default function EditProduct() {
   const [quantity, setQuantity] = useState<Products['productQuantity']>();
   const [image, setImage] = useState<Products['productImage']>();
   const { id } = useRouter().query;
-  const { data: product } = useProduct(verify(id));
+  const { data: product, isLoading: loading } = useProduct(verify(id));
+
+  const router = useRouter();
 
   const data: UpdateProduct = {
     productName: name != undefined ? name : product?.productName,
@@ -45,13 +48,16 @@ export default function EditProduct() {
   }
 
   const update = () => {
-    updateProduct(id, data);
+    NProgress.start();
+    updateProduct(id, data).then(() => {
+      NProgress.done();
+      router.push('/user/products');
+    });
   };
 
   function verify(id: string | string[] | undefined) {
     if (id != undefined) return id;
   }
-  const loading = false;
 
   if (loading)
     return (
