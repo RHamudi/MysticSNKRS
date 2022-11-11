@@ -4,7 +4,11 @@ import { useProducts } from '../../hooks/useProducts';
 import CardDiscover from '../card-discover';
 
 export default function TrendingTops() {
-  const tops = ['AIR MAX PENNY', 'Air Jordan 6 Retro', 'Air Force 1 Mid'];
+  const tops = [
+    'AIR MAX PENNY',
+    'Tênis Nike SB Shane Unissex',
+    'Air Force 1 Mid',
+  ];
 
   const { data: Products, isLoading: Loading } = useProducts();
 
