@@ -9,7 +9,6 @@ export async function updateProduct(
   productId: string | string[] | undefined,
   product: UpdateProduct
 ) {
-  console.log(product);
   const storageUserId = localStorage.getItem('userId');
   const token = localStorage.getItem('authToken');
   const res = (
