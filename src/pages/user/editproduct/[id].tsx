@@ -15,16 +15,17 @@ export default function EditProduct() {
   const [price, setPrice] = useState<Products['productPrice']>();
   const [quantity, setQuantity] = useState<Products['productQuantity']>();
   const [image, setImage] = useState<Products['productImage']>();
-  const storageUserId = localStorage.getItem('userId');
   const { id } = useRouter().query;
   const { data: product } = useProduct(verify(id));
 
   const data: UpdateProduct = {
-    productName: name,
-    productDescription: description,
-    productPrice: price,
-    productQuantity: quantity,
-    productImage: image,
+    productName: name != undefined ? name : product?.productName,
+    productDescription:
+      description != undefined ? description : product?.productDescription,
+    productPrice: price != undefined ? price : product?.productPrice,
+    productQuantity:
+      quantity != undefined ? quantity : product?.productQuantity,
+    productImage: image != undefined ? image : product?.productImage,
   };
 
   function handleName(e: any) {
@@ -44,7 +45,7 @@ export default function EditProduct() {
   }
 
   const update = () => {
-    updateProduct(storageUserId, id, data);
+    updateProduct(id, data);
   };
 
   function verify(id: string | string[] | undefined) {
