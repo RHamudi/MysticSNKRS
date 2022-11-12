@@ -7,8 +7,8 @@ import { useProducts } from '../../hooks/useProducts';
 import CardDiscover from '../card-discover';
 
 export default function Releases() {
-  const { data: products } = useProducts();
-  const loading = true;
+  const { data: products, isLoading: loading } = useProducts();
+
   const filtered = products?.map((item, index) => {
     if (index < 6) {
       return item;
