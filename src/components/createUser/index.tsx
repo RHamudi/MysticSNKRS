@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -12,19 +12,19 @@ export default function CreateUser() {
   const [password, setPassword] = useState('');
   const router = useRouter();
 
-  function handleUsername(e: any) {
+  function handleUsername(e: React.ChangeEvent<HTMLInputElement>) {
     setUsername(e.target.value);
   }
 
-  function handleEmail(e: any) {
+  function handleEmail(e: React.ChangeEvent<HTMLInputElement>) {
     setEmail(e.target.value);
   }
 
-  function handlePassword(e: any) {
+  function handlePassword(e: React.ChangeEvent<HTMLInputElement>) {
     setPassword(e.target.value);
   }
 
-  function handleSubmit(e: any) {
+  function handleSubmit(e: React.MouseEvent<HTMLElement>) {
     e.preventDefault();
     createUser(username, email, password)
       .then((res) => {
