@@ -3,6 +3,14 @@ export interface APIecommerceResponse<T> {
   id: string | string[] | undefined;
 }
 
+export interface UpdateProduct {
+  productName: string | undefined;
+  productDescription: string | undefined;
+  productPrice: number | undefined;
+  productQuantity: number | undefined;
+  productImage: string | undefined;
+}
+
 export interface Products {
   _id: string;
   productName: string;

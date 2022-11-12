@@ -9,7 +9,9 @@ export default function HomeUser() {
   return (
     <>
       <NavUser />
-      <div className="flex justify-evenly gap-x-7 gap-y-3 flex-wrap mt-8">
+      
+      <div className="flex justify-evenly gap-x-7 gap-y-3 flex-wrap my-9">
+
         {loading === true ? (
           <div>carregando</div>
         ) : (
