@@ -4,6 +4,7 @@ import { useProducts } from '../../hooks/useProducts';
 import CardDiscover from '../card-discover';
 
 export default function TrendingTops() {
+
   const tops = [
     'AIR MAX PENNY',
     'Tênis Nike SB Shane Unissex',
