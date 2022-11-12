@@ -8,7 +8,7 @@ export default function ShopPage() {
 
   if (!loading) {
     return (
-      <div className="flex justify-around flex-wrap gap-12">
+      <div className="flex justify-around flex-wrap gap-12 mb-16">
         {products?.map((product, index) => (
           <CardDiscover
             buttonRemove={false}
