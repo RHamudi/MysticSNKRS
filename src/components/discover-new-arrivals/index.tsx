@@ -7,8 +7,8 @@ import { useProducts } from '../../hooks/useProducts';
 import CardDiscover from '../card-discover';
 
 export default function Releases() {
-  const { data: products, isLoading: loading } = useProducts();
-
+  const { data: products } = useProducts();
+  const loading = true;
   const filtered = products?.map((item, index) => {
     if (index < 6) {
       return item;
@@ -53,12 +53,13 @@ export default function Releases() {
   } else {
     return (
       <>
-        <div>
+        <div className="">
           <ContentLoader
             foregroundColor="rgb(229 231 235)"
             backgroundColor="rgb(209 213 219)"
-            width={1310}
-            height={412}
+            width={'auto'}
+            height={'auto'}
+            viewBox="0 0 1310 412"
           >
             <rect x="0" y="0" rx="5" ry="5" width="1310" height="412" />
           </ContentLoader>
