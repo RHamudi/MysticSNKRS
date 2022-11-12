@@ -49,6 +49,10 @@ export default function Releases() {
       </main>
     );
   } else {
-    return <></>;
+    return (
+      <>
+        <div>Teste</div>
+      </>
+    );
   }
 }
