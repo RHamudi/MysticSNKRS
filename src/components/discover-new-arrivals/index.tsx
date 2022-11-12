@@ -1,3 +1,5 @@
+import ContentLoader from 'react-content-loader';
+
 import Image from 'next/image';
 
 import imgMain from '../../assets/main.webp';
@@ -5,15 +7,15 @@ import { useProducts } from '../../hooks/useProducts';
 import CardDiscover from '../card-discover';
 
 export default function Releases() {
-  const { data: Products, isLoading: Loading } = useProducts();
+  const { data: products, isLoading: loading } = useProducts();
 
-  const filtered = Products?.map((item, index) => {
+  const filtered = products?.map((item, index) => {
     if (index < 6) {
       return item;
     }
   });
 
-  if (!Loading) {
+  if (!loading) {
     return (
       <main>
         <div className="mt-6 -z-50 relative">
@@ -51,7 +53,66 @@ export default function Releases() {
   } else {
     return (
       <>
-        <div>Teste</div>
+        <div>
+          <ContentLoader
+            foregroundColor="rgb(229 231 235)"
+            backgroundColor="rgb(209 213 219)"
+            width={1310}
+            height={412}
+          >
+            <rect x="0" y="0" rx="5" ry="5" width="1310" height="412" />
+          </ContentLoader>
+        </div>
+        <div className="flex justify-around flex-wrap gap-24 mt-14">
+          <ContentLoader
+            foregroundColor="rgb(229 231 235)"
+            backgroundColor="rgb(209 213 219)"
+            width={256}
+            height={340}
+          >
+            <rect x="0" y="0" rx="5" ry="5" width="256" height="340" />
+          </ContentLoader>
+          <ContentLoader
+            foregroundColor="rgb(229 231 235)"
+            backgroundColor="rgb(209 213 219)"
+            width={256}
+            height={340}
+          >
+            <rect x="0" y="0" rx="5" ry="5" width="256" height="340" />
+          </ContentLoader>
+          <ContentLoader
+            foregroundColor="rgb(229 231 235)"
+            backgroundColor="rgb(209 213 219)"
+            width={256}
+            height={340}
+          >
+            <rect x="0" y="0" rx="5" ry="5" width="256" height="340" />
+          </ContentLoader>
+          <ContentLoader
+            foregroundColor="rgb(229 231 235)"
+            backgroundColor="rgb(209 213 219)"
+            width={256}
+            height={340}
+          >
+            <rect x="0" y="0" rx="5" ry="5" width="256" height="340" />
+          </ContentLoader>
+          <ContentLoader
+            foregroundColor="rgb(229 231 235)"
+            backgroundColor="rgb(209 213 219)"
+            width={256}
+            height={340}
+          >
+            <rect x="0" y="0" rx="5" ry="5" width="256" height="340" />
+          </ContentLoader>
+          <ContentLoader
+            foregroundColor="rgb(229 231 235)"
+            backgroundColor="rgb(209 213 219)"
+            width={256}
+            height={340}
+          >
+            <rect x="0" y="0" rx="5" ry="5" width="256" height="340" />
+          </ContentLoader>
+        </div>
       </>
     );
   }
