@@ -31,19 +31,19 @@ export default function EditProduct() {
     productImage: image != undefined ? image : product?.productImage,
   };
 
-  function handleName(e: any) {
+  function handleName(e: React.ChangeEvent<HTMLInputElement>) {
     setName(e.target.value);
   }
-  function handleDescription(e: any) {
+  function handleDescription(e: React.ChangeEvent<HTMLInputElement>) {
     setDescription(e.target.value);
   }
-  function handlePrice(e: any) {
-    setPrice(e.target.value);
+  function handlePrice(e: React.ChangeEvent<HTMLInputElement>) {
+    setPrice(Number(e.target.value));
   }
-  function handleQuantity(e: any) {
-    setQuantity(e.target.value);
+  function handleQuantity(e: React.ChangeEvent<HTMLInputElement>) {
+    setQuantity(Number(e.target.value));
   }
-  function handleImage(e: any) {
+  function handleImage(e: React.ChangeEvent<HTMLInputElement>) {
     setImage(e.target.value);
   }
 
