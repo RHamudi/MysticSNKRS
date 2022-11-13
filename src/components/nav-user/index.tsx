@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { AiOutlineAppstoreAdd } from 'react-icons/ai';
 import { MdManageAccounts } from 'react-icons/md';
 import { SlLogout } from 'react-icons/sl';
 
@@ -15,6 +16,12 @@ export default function NavUser() {
         <Link href="/user/products">
           <span className="bg-gray-200 cursor-pointer p-4 rounded-md">
             <MdManageAccounts className="text-2xl" />
+          </span>
+        </Link>
+
+        <Link href="/newproduct">
+          <span className="bg-gray-200 cursor-pointer p-4 rounded-md">
+            <AiOutlineAppstoreAdd className="text-2xl" />
           </span>
         </Link>
 
