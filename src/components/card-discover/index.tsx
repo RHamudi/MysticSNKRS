@@ -30,6 +30,7 @@ export default function CardDiscover(props: {
     NProgress.start();
     removeProduct(storageUserId, props.productId, storageToken).then(() => {
       NProgress.done();
+      router.reload();
     });
   }
 
