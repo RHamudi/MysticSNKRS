@@ -39,12 +39,15 @@ export default function CardDiscover(props: {
         {props.buttonRemove && (
           <div className="flex justify-end gap-2">
             <button
-              className="bg-gray-200 p-2 rounded"
+              className="transition hover:scale-125 bg-gray-200 p-2 rounded"
               onClick={navigationEdit}
             >
               <AiFillEdit className="text-2xl" />
             </button>
-            <button className="bg-gray-200 p-2 rounded" onClick={handleRemove}>
+            <button
+              className="transition hover:scale-125 bg-gray-200 p-2 rounded"
+              onClick={handleRemove}
+            >
               <TiDelete className="text-2xl" />
             </button>
           </div>
