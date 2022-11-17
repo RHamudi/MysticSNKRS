@@ -70,7 +70,7 @@ export default function NavbarPage() {
               {auth?.authenticate == true ? (
                 <Link href="/user/products">
                   <span className="flex justify-center items-center cursor-pointer gap-1">
-                    <span className="text-lg">account</span>{' '}
+                    <span className="text-lg">{auth.username}</span>{' '}
                     <BsFillPeopleFill />
                   </span>
                 </Link>
