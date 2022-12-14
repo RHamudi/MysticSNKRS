@@ -1,7 +1,7 @@
 import axios, { AxiosPromise, AxiosRequestConfig } from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://ecommerce-api-rest-back.herokuapp.com',
+  baseURL: 'https://apiecommercerhamudi.onrender.com',
 });
 
 export const httpClient = <T>(config: AxiosRequestConfig) => {
