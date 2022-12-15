@@ -50,15 +50,18 @@ export default function LoginPage() {
           <span>{apiErro}</span>
         </Alert>
       )}
-      <div className="flex items-center gap-32">
-        <Image
-          className="w-2/4 -z-50"
-          src={img.src}
-          alt="img"
-          width={655}
-          height={655}
-          blurDataURL={img.blurDataURL}
-        />
+      <div className="h-screen flex justify-center items-center md:h-auto md:w-auto md:flex md:items-center md:gap-32">
+        <div className="hidden md:block">
+          <Image
+            className="w-2/4 -z-50"
+            src={img.src}
+            alt="img"
+            width={655}
+            height={655}
+            blurDataURL={img.blurDataURL}
+          />
+        </div>
+
         <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
           <div>
             <h1 className="text-3xl font-bold mb-9">Mystic SNKRS</h1>
