@@ -76,7 +76,7 @@ export default function NavbarPage() {
                 </Link>
               ) : (
                 <Link href="/login">
-                  <span className="flex justify-center items-center cursor-pointer gap-1">
+                  <span className="flex md:justify-center items-center cursor-pointer gap-1 pt-1">
                     <span className="text-lg">Login / Create</span>{' '}
                     <BsFillPeopleFill />
                   </span>
