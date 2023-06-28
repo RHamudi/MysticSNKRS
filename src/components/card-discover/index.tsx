@@ -34,6 +34,8 @@ export default function CardDiscover(props: {
     });
   }
 
+  console.log(props.productImage);
+  
   return (
     <>
       <div className="w-64 shadow-md hover:shadow-slate-400 rounded-xl p-5 cursor-pointer">

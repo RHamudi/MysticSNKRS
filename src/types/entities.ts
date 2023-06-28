@@ -40,6 +40,11 @@ export interface Login {
   token: string;
 }
 
+export interface submitLogin{
+  email: string,
+  password: string,
+}
+
 export interface CreateUser {
   msg: string;
 }

@@ -1,5 +1,5 @@
 import HomeUser from '../../components/home-user';
-import { RequireAuth } from '../../contexts/RequireAuth';
+import { RequireAuth } from '../../redux/RequireAuth';
 
 export default function Products() {
   return (

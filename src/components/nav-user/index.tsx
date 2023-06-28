@@ -1,14 +1,20 @@
-import { useContext } from 'react';
 import { AiOutlineAppstoreAdd } from 'react-icons/ai';
 import { MdManageAccounts } from 'react-icons/md';
 import { SlLogout } from 'react-icons/sl';
+import { useDispatch } from 'react-redux';
 
 import Link from 'next/link';
 
-import { AuthContext } from '../../contexts/AuthContext';
+
+import { logout } from '../../redux/loginSlice';
 
 export default function NavUser() {
-  const auth = useContext(AuthContext);
+  const dispatch = useDispatch();
+
+  function logOut(){
+    dispatch(logout());
+  }
+
   return (
     <div className="flex justify-center mt-32">
       <div className="w-3/5 text-5xl font-bold ">My Products</div>
@@ -27,7 +33,7 @@ export default function NavUser() {
 
         <span
           className="bg-gray-200 cursor-pointer p-4 rounded-md"
-          onClick={auth?.logout}
+          onClick={logOut}
         >
           <SlLogout className="text-2xl" />
         </span>

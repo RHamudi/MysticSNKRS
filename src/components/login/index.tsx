@@ -1,6 +1,6 @@
-/* eslint-disable react/no-unescaped-entities */
-import React, { useContext, useState } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Alert } from '@mui/material';
 import Image from 'next/image';
@@ -9,12 +9,15 @@ import { useRouter } from 'next/router';
 import NProgress from 'nprogress';
 
 import img from '../../assets/login.webp';
-import { AuthContext } from '../../contexts/AuthContext';
+import { signin, setApiErro, useStateLogin } from '../../redux/loginSlice';
+import { useLogin } from '../../hooks/useLogin';
+import { submitLogin } from '../../types/entities';
 
 export default function LoginPage() {
-  const auth = useContext(AuthContext);
-  const [apiErro, setApiErro] = useState<string>('');
+  const dispatch = useDispatch();
   const router = useRouter();
+  const {apiErro} = useSelector(useStateLogin);
+  const logar = useLogin();
 
   const {
     register,
@@ -22,26 +25,24 @@ export default function LoginPage() {
     formState: { errors },
   } = useForm();
 
-  function onSubmit(data: any) {
+ async function onSubmit(data: submitLogin | any) {
     NProgress.start();
-    auth
-      ?.signin(data.email, data.password)
-      .then(() => {
-        NProgress.done();
-        router.push('/user/products');
-      })
-      .catch((err) => {
-        NProgress.done();
-        setApiErro(err.response.data.erro);
-        setTimeout(() => {
-          setApiErro('');
-        }, 8000);
-      });
-  }
+    await logar.login(data.email, data.password).then((res) => {
+      NProgress.done();
+      dispatch(signin(res));
+      router.push('/user/products');
+    }).catch((err)=>{
+      NProgress.done();
+      dispatch(setApiErro(err.response.data.erro));
+      setTimeout(() => {
+        dispatch(setApiErro(''));
+      }, 8000);
+    });
+ }
 
   return (
     <>
-      {apiErro != '' && (
+      {apiErro && (
         <Alert
           className="w-80 absolute right-0 mt-7 mr-7"
           variant="outlined"
@@ -90,7 +91,7 @@ export default function LoginPage() {
             Login
           </button>
           <p>
-            Doesn't have an account? Register on the website.{' '}
+            Não possui uma conta? Registre em nosso Site.{' '}
             <Link href="/create">Click here.</Link>
           </p>
         </form>

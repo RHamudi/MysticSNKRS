@@ -12,7 +12,7 @@ export default function HomeUser() {
     <>
       <NavUser />
 
-      <div className="flex justify-evenly gap-x-7 gap-y-3 flex-wrap my-9">
+      <div className="flex justify-evenly gap-x-7 gap-y-3 flex-wrap my-9 h-screen">
 
         {loading === true ? (
           <div className="flex justify-around flex-wrap gap-20">

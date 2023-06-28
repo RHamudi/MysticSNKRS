@@ -1,14 +1,43 @@
-import { useState, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { BsFillPeopleFill, BsFillCartFill } from 'react-icons/bs';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import { useSelector , useDispatch } from 'react-redux';
 
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import { AuthContext } from '../../contexts/AuthContext';
+import { authenticate, setUsername, useStateLogin } from '../../redux/loginSlice';
+import { useLogin } from '../../hooks/useLogin';
 
 export default function NavbarPage() {
-  const auth = useContext(AuthContext);
+  const dispatch = useDispatch();
+  const {authenticateIs} = useSelector(useStateLogin);
+  const {username} = useSelector(useStateLogin);
+
+  const logar = useLogin();
+
+  useEffect(() => {
+    async function validate() {
+      const storageToken = localStorage.getItem('authToken');
+      if (storageToken) {
+        await logar
+          .verifyToken(storageToken)
+          .then((res) => {
+            if (res.status === 200) {
+              dispatch(authenticate(true));
+              dispatch(setUsername(localStorage.getItem('username')));
+            }
+          })
+          .catch(() => {
+            dispatch(authenticate(false));
+            localStorage.clear();
+          });
+      }
+    }
+    validate();
+  },[authenticateIs]);
+
+
   const [hidden, setHidden] = useState(false);
 
   function handleHidden() {
@@ -67,10 +96,10 @@ export default function NavbarPage() {
                   : 'justify-center items-center text-xl'
               }
             >
-              {auth?.authenticate == true ? (
+              {authenticateIs == true ? (
                 <Link href="/user/products">
                   <span className="flex justify-center items-center cursor-pointer gap-1">
-                    <span className="text-lg">{auth.username}</span>{' '}
+                    <span className="text-lg">{username}</span>{' '}
                     <BsFillPeopleFill />
                   </span>
                 </Link>
@@ -83,7 +112,7 @@ export default function NavbarPage() {
                 </Link>
               )}
             </li>
-            {auth?.authenticate && (
+            {authenticateIs && (
               <li className="flex justify-center items-center text-xl">
                 <BsFillCartFill />
               </li>

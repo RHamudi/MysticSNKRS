@@ -9,20 +9,31 @@ import { createProduct } from '../hooks/useCreateProduct';
 
 export default function NewProduct() {
   const router = useRouter();
-  const [image, setImage] = useState<string>('');
+  const [image, setImage] = useState();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  function handleImage(e: React.ChangeEvent<HTMLInputElement>) {
-    setImage(e.target.value);
+  function handleImage(e: any) {
+    if (e.target.files && e.target.files[0]) {
+      setImage(URL.createObjectURL(e.target.files[0]));
+    } else {
+      setImage("null");
+    }
   }
 
   function onSubmit(data: any) {
+    const formData = new FormData();
+    formData.append("file", data.file[0]);
+    formData.append("productName", data.productName);
+    formData.append("productDescription", data.productDescription);
+    formData.append("productPrice", data.productPrice);
+    formData.append("productQuantity", data.productQuantity);
+
     NProgress.start();
-    createProduct(data)
+    createProduct(formData)
       .then(() => {
         NProgress.done();
         router.push('/user/products');
@@ -36,7 +47,7 @@ export default function NewProduct() {
     <div className="flex justify-around">
       <div>
         <h1 className="mt-16 text-2xl font-bold text-center">Image preview</h1>
-        <Image src={image} width={600} height={600} blurDataURL={image} />
+        <Image src={image} width={600} height={600} />
       </div>
       <form
         className="flex flex-col gap-4 mt-16"
@@ -80,11 +91,11 @@ export default function NewProduct() {
           {errors.productQuantity && <span>Quantity is required</span>}
         </label>
         <label className="flex flex-col text-gray-700 text-sm font-bold mb-2">
-          Image Link
+          Image
           <input
             className="shadow appearance-none border rounded w-80 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            type="text"
-            {...register('productImage', { required: true })}
+            type="file"
+            {...register('file', { required: true })}
             onChange={handleImage}
           />
           {errors.productImage && <span>Image is required</span>}
