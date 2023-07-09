@@ -10,7 +10,7 @@ export default function Releases() {
   const { data: products, isLoading: loading } = useProducts();
 
   const filtered = products?.map((item, index) => {
-    if (index < 6) {
+    if (index < 4) {
       return item;
     }
   });
