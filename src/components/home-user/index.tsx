@@ -8,11 +8,13 @@ export default function HomeUser() {
   const userId = localStorage.getItem('userId');
   const { data: productsUser, isLoading: loading } = useUserProducts(userId);
 
+  console.log(productsUser);
+
   return (
     <>
       <NavUser />
 
-      <div className="flex justify-evenly gap-x-7 gap-y-3 flex-wrap my-9 h-screen">
+      <div className="flex justify-evenly gap-x-7 gap-y-3 flex-wrap my-9">
 
         {loading === true ? (
           <div className="flex justify-around flex-wrap gap-20">
@@ -90,6 +92,8 @@ export default function HomeUser() {
               productImage={product.productImage}
               productPrice={product.productPrice}
               productId={product._id}
+              imageHash={product.imageHash}
+              imageName={product.imageName}
             />
           ))
         )}
