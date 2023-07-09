@@ -19,13 +19,14 @@ export default function NavbarPage() {
   useEffect(() => {
     async function validate() {
       const storageToken = localStorage.getItem('authToken');
-      if (storageToken) {
+      const storageUsername = localStorage.getItem('username');
+      if (storageToken && storageUsername) {
         await logar
           .verifyToken(storageToken)
           .then((res) => {
             if (res.status === 200) {
               dispatch(authenticate(true));
-              dispatch(setUsername(localStorage.getItem('username')));
+              dispatch(setUsername(storageUsername));
             }
           })
           .catch(() => {

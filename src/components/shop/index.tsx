@@ -16,8 +16,9 @@ export default function ShopPage() {
             productId={product._id}
             productName={product.productName}
             productImage={product.productImage}
-            productPrice={product.productPrice}
-          />
+            productPrice={product.productPrice} 
+            imageHash={undefined} 
+            imageName={undefined}/>
         ))}
       </div>
     );

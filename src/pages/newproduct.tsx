@@ -9,7 +9,7 @@ import { createProduct } from '../hooks/useCreateProduct';
 
 export default function NewProduct() {
   const router = useRouter();
-  const [image, setImage] = useState();
+  const [image, setImage] = useState<string>('');
   const {
     register,
     handleSubmit,
@@ -17,8 +17,9 @@ export default function NewProduct() {
   } = useForm();
 
   function handleImage(e: any) {
+    const image = URL.createObjectURL(e.target.files[0]);
     if (e.target.files && e.target.files[0]) {
-      setImage(URL.createObjectURL(e.target.files[0]));
+      setImage(image);
     } else {
       setImage("null");
     }

@@ -14,6 +14,8 @@ export default function Releases() {
       return item;
     }
   });
+  console.log("products", products);
+  console.log("filtered", filtered);
 
   if (!loading) {
     return (
@@ -37,15 +39,16 @@ export default function Releases() {
           <p className="font-medium">Releases</p>
         </div>
         <div className="flex justify-around flex-wrap gap-24">
-          {filtered?.map((product, index) => (
+          {filtered?.map((product, index) => (      
             <CardDiscover
               buttonRemove={false}
               key={index}
               productId={product?._id}
               productName={product?.productName}
               productImage={product?.productImage}
-              productPrice={product?.productPrice}
-            />
+              productPrice={product?.productPrice} 
+              imageHash={undefined} 
+              imageName={undefined}/>
           ))}
         </div>
       </main>

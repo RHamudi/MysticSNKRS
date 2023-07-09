@@ -32,7 +32,8 @@ export default function TrendingTops() {
                 productName={filter.productName}
                 productImage={filter.productImage}
                 productPrice={filter.productPrice}
-              />
+                imageHash={undefined}
+                imageName={undefined}              />
             ))
           )}
         </div>
