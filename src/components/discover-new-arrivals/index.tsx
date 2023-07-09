@@ -9,14 +9,10 @@ import CardDiscover from '../card-discover';
 export default function Releases() {
   const { data: products, isLoading: loading } = useProducts();
 
-  const filtered = products?.map((item, index) => {
-    if (index < 4) {
-      return item;
-    }
-  });
-  console.log("products", products);
-  console.log("filtered", filtered);
-
+  function filterProducts(numberFilter: number) {
+    return products?.slice(0, numberFilter);
+  }
+  const filtered = filterProducts(4);
   if (!loading) {
     return (
       <main>
