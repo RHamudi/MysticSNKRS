@@ -6,8 +6,8 @@ import { useSelector , useDispatch } from 'react-redux';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import { authenticate, setUsername, useStateLogin } from '../../redux/loginSlice';
 import { useLogin } from '../../hooks/useLogin';
+import { authenticate, setUsername, useStateLogin } from '../../redux/loginSlice';
 
 export default function NavbarPage() {
   const dispatch = useDispatch();
@@ -35,7 +35,7 @@ export default function NavbarPage() {
       }
     }
     validate();
-  },[authenticateIs]);
+  },[username,authenticateIs]);
 
 
   const [hidden, setHidden] = useState(false);
