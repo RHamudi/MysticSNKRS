@@ -8,8 +8,6 @@ export default function HomeUser() {
   const userId = localStorage.getItem('userId');
   const { data: productsUser, isLoading: loading } = useUserProducts(userId);
 
-  console.log(productsUser);
-
   return (
     <>
       <NavUser />
