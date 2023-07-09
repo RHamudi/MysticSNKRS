@@ -13,6 +13,8 @@ export default function CardDiscover(props: {
   productPrice: number | undefined;
   productId: string | undefined;
   buttonRemove: boolean | undefined;
+  imageHash: string | undefined;
+  imageName: string | undefined;
 }) {
   const router = useRouter();
   const storageToken = localStorage.getItem('authToken');
@@ -28,14 +30,12 @@ export default function CardDiscover(props: {
 
   function handleRemove() {
     NProgress.start();
-    removeProduct(storageUserId, props.productId, storageToken).then(() => {
+    removeProduct(storageUserId, props.productId, props.imageName, storageToken).then(() => {
       NProgress.done();
       router.reload();
     });
   }
 
-  console.log(props.productImage);
-  
   return (
     <>
       <div className="w-64 shadow-md hover:shadow-slate-400 rounded-xl p-5 cursor-pointer">
