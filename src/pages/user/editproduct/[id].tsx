@@ -16,6 +16,7 @@ export default function EditProduct() {
   const [price, setPrice] = useState<Products['productPrice']>();
   const [quantity, setQuantity] = useState<Products['productQuantity']>();
   const [image, setImage] = useState<Products['productImage']>();
+  const [file, setFile] = useState();
   const { id } = useRouter().query;
   const { data: product, isLoading: loading } = useProduct(verify(id));
 
@@ -28,7 +29,7 @@ export default function EditProduct() {
     productPrice: price != undefined ? price : product?.productPrice,
     productQuantity:
       quantity != undefined ? quantity : product?.productQuantity,
-    productImage: image != undefined ? image : product?.productImage,
+    productImage: image != undefined ? file : product?.productImage,
   };
 
   function handleName(e: React.ChangeEvent<HTMLInputElement>) {
@@ -43,8 +44,13 @@ export default function EditProduct() {
   function handleQuantity(e: React.ChangeEvent<HTMLInputElement>) {
     setQuantity(Number(e.target.value));
   }
-  function handleImage(e: React.ChangeEvent<HTMLInputElement>) {
-    setImage(e.target.value);
+  function handleImage(e: any) {
+    if (e.target.files && e.target.files[0]) {
+      setImage(URL.createObjectURL(e.target.files[0]));
+      setFile(e.target.files[0]);
+    } else {
+      setImage("null");
+    }
   }
 
   const update = () => {
@@ -150,9 +156,9 @@ export default function EditProduct() {
             Image Link
             <input
               className="shadow appearance-none border rounded w-80 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              type="text"
+              type="file"
               placeholder={product?.productImage}
-              value={image}
+              //value={image}
               onChange={handleImage}
             />
           </label>
