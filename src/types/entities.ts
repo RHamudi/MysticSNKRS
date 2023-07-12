@@ -21,6 +21,7 @@ export interface Products {
   imageName: string;
   imageHash: string;
   username: string;
+  productAccess: number;
   __v: number;
 }
 
