@@ -14,7 +14,7 @@ const INITIAL_STATE: StateLogin = {
     username: '',
 };
 
-export const slice = createSlice({
+const slice = createSlice({
     name: 'Login',
     initialState: INITIAL_STATE,
     reducers: {
