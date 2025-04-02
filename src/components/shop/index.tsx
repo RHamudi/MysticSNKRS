@@ -8,7 +8,7 @@ export default function ShopPage() {
 
   if (!loading) {
     return (
-      <div className="flex justify-around flex-wrap gap-12 mb-16">
+      <div className="flex justify-around flex-wrap gap-12 mb-16 h-screen">
         {products?.map((product, index) => (
           <CardDiscover
             buttonRemove={false}
@@ -16,9 +16,9 @@ export default function ShopPage() {
             productId={product._id}
             productName={product.productName}
             productImage={product.productImage}
-            productPrice={product.productPrice} 
-            imageHash={undefined} 
-            imageName={undefined}/>
+            productPrice={product.productPrice}
+            imageHash={undefined}
+            imageName={undefined} />
         ))}
       </div>
     );

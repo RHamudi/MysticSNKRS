@@ -38,7 +38,7 @@ export default function CardDiscover(props: {
 
   return (
     <>
-      <div className="w-64 shadow-md hover:shadow-slate-400 rounded-xl p-5 cursor-pointer">
+      <div className="w-64 shadow-md hover:shadow-slate-400 rounded-xl p-5 cursor-pointer h-2/5">
         {props.buttonRemove && (
           <div className="flex justify-end gap-2">
             <button
